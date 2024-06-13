@@ -8,11 +8,10 @@
 #define DHTPIN 2
 #define DHTTYPE DHT11
 
-// WiFi credentials
+
 const char* ssid = "hidden";
 const char* password = "hidden";
 
-// MQTT Server settings
 const char* mqtt_server = "mqtt.beia-telemetrie.ro";
 const char* mqtt_topic = "/training/device/cosmin-dima/data";
 
@@ -54,7 +53,6 @@ void loop() {
 
   sensors_event_t event;
 
-  // Create a JSON object for storing temperature and humidity
   StaticJsonDocument<200> doc;
 
   dht.temperature().getEvent(&event);
@@ -73,10 +71,9 @@ void loop() {
     Serial.println(F("%"));
   }
 
-  // Generate the JSON string
   char jsonBuffer[200];
   serializeJson(doc, jsonBuffer);
   client.publish(mqtt_topic, jsonBuffer);
 
-  delay(2000); // Delay between measurements
+  delay(2000);
 }
