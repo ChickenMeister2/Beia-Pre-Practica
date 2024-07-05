@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 client = InfluxDBClient(
     url="https://eu-central-1-1.aws.cloud2.influxdata.com",
-    token="hidden",
+    token="ENV_DBTOKEN",
     org="974d440648ed6233"
 )
 
