@@ -9,8 +9,8 @@
 #define DHTTYPE DHT11
 
 
-const char* ssid = "hidden";
-const char* password = "hidden";
+const char* ssid = "ENV_SSID";
+const char* password = "ENV_PSWD";
 
 const char* mqtt_server = "mqtt.beia-telemetrie.ro";
 const char* mqtt_topic = "/training/device/cosmin-dima/data";
